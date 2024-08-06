@@ -1,0 +1,86 @@
+/* variables for light and dark mode */
+:root {
+    --border-color-light: #000; 
+    --border-color-dark: #fff;  
+    --navbar-bg-light: #ffffff; 
+    --navbar-text-light: #000;  
+    --navbar-bg-dark: #ffffff;  
+    --navbar-text-dark: #000;   
+}
+
+/* light mode*/
+body.light-mode {
+    background-color: #fff;
+    color: #000;
+}
+
+body.light-mode .navbar {
+    background-color: var(--navbar-bg-light);
+}
+
+body.light-mode .navbar .col a {
+    color: var(--navbar-text-light);
+}
+
+body.light-mode .game-image img {
+    border: 4px solid var(--border-color-light);
+}
+
+/* dark mode*/
+body.dark-mode {
+    background-color: #000;
+    color: #fff;
+}
+
+body.dark-mode .navbar {
+    background-color: var(--navbar-bg-dark);
+}
+
+body.dark-mode .navbar .col a {
+    color: var(--navbar-text-dark);
+}
+
+body.dark-mode .game-image img {
+    border: 4px solid var(--border-color-dark);
+}
+
+.navbar {
+    padding: 10px 0;
+}
+
+.navbar .col a {
+    font-weight: bold;
+}
+
+.game-name {
+    padding: 10px;
+    margin: 20px 0;
+}
+
+.game-image {
+    width: 90%; 
+    max-width: 600px; 
+    height: auto; 
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px auto; 
+}
+
+.game-image img {
+    width: 100%;
+    height: auto; 
+    border: 4px solid var(--border-color-light); 
+    border-radius: 8px; 
+}
+.game-details {
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.download-details {
+    padding: 20px;
+    margin-top: 10px;
+}
