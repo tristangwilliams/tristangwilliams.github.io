@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log('JavaScript file is loaded');
 
+    // Get references to all links and screens
     const installButton = document.getElementById('installButton');
     let progress = 0;
 
@@ -15,49 +16,42 @@ document.addEventListener('DOMContentLoaded', () => {
             installButton.textContent = `Installation complete!`;
         }
     });
-});
-
-
-const toggleButton = document.getElementById('toggleButton');
-const body = document.body;
-
-
-function toggleMode() {
-    if (body.classList.contains('dark-mode')) {
-        body.classList.remove('dark-mode');
-        body.classList.add('light-mode');
-    } else {
-        body.classList.remove('light-mode');
-        body.classList.add('dark-mode');
-    }
-}
-
-
-toggleButton.addEventListener('click', toggleMode);
-body.classList.add('light-mode');
-
-
-// switching between screens
-document.addEventListener('DOMContentLoaded', () => {
+    
     const homeLink = document.getElementById('homeLink');
     const aboutMeLink = document.getElementById('aboutMeLink');
-    const projectsLink = document.getElementById('projectsLink');
+    const storeLink = document.getElementById('storeLink');
 
     const homeScreen = document.getElementById('homeScreen');
     const aboutMeScreen = document.getElementById('aboutMeScreen');
-    const projectsScreen = document.getElementById('projectsScreen');
+    const storeScreen = document.getElementById('storeScreen');
+    const shopScreen = document.getElementById('shopScreen');
 
     function showScreen(screen) {
         if (homeScreen) homeScreen.style.display = 'none';
         if (aboutMeScreen) aboutMeScreen.style.display = 'none';
-        if (projectsScreen) projectsScreen.style.display = 'none';
+        if (storeScreen) storeScreen.style.display = 'none';
+        if (shopScreen) shopScreen.style.display = 'none';
         if (screen) screen.style.display = 'block';
     }
 
     homeLink.addEventListener('click', () => showScreen(homeScreen));
     aboutMeLink.addEventListener('click', () => showScreen(aboutMeScreen));
-    projectsLink.addEventListener('click', () => showScreen(projectsScreen));
+    storeLink.addEventListener('click', () => showScreen(storeScreen));
 
-    // this shows the project screen
-    showScreen(projectsScreen);
+    // Default screen
+    showScreen(homeScreen);
+
+    // Handle game card clicks
+    document.querySelectorAll('.view-game').forEach(button => {
+        button.addEventListener('click', function() {
+            showScreen(shopScreen);
+        });
+    });
+
+    // Toggle dark/light mode
+    const toggleButton = document.getElementById('toggleButton');
+    toggleButton.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        document.body.classList.toggle('light-mode');
+    });
 });
