@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('JavaScript file is loaded');
-
-    // Get references to all links and screens
+    
+    // Install button functionality
     const installButton = document.getElementById('installButton');
     let progress = 0;
 
@@ -17,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     
+    // Different screen functionality click
     const homeLink = document.getElementById('homeLink');
     const aboutMeLink = document.getElementById('aboutMeLink');
     const storeLink = document.getElementById('storeLink');
@@ -38,17 +38,17 @@ document.addEventListener('DOMContentLoaded', () => {
     aboutMeLink.addEventListener('click', () => showScreen(aboutMeScreen));
     storeLink.addEventListener('click', () => showScreen(storeScreen));
 
-    // Default screen
+    // Home screen appears by default
     showScreen(homeScreen);
 
-    // Handle game card clicks
+    // Game card function
     document.querySelectorAll('.view-game').forEach(button => {
         button.addEventListener('click', function() {
             showScreen(shopScreen);
         });
     });
 
-    // Toggle dark/light mode
+    // Dark and light mode
     const toggleButton = document.getElementById('toggleButton');
     toggleButton.addEventListener('click', () => {
         document.body.classList.toggle('dark-mode');
